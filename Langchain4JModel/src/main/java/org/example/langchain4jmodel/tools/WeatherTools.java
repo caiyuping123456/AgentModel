@@ -1,20 +1,12 @@
 package org.example.langchain4jmodel.tools;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.langchain4j.agent.tool.P;
 import dev.langchain4j.agent.tool.Tool;
-import dev.langchain4j.agent.tool.ToolSpecification;
-import dev.langchain4j.agent.tool.ToolSpecifications;
 import dev.langchain4j.service.tool.*;
 import jakarta.annotation.Resource;
 import org.example.langchain4jmodel.service.WeatherService;
+import org.example.langchain4jmodel.utils.ToolProviderResultUtils;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 /**
  * @author caiyuping
  * @date 2026/3/3 17:43
@@ -41,16 +33,6 @@ public class WeatherTools implements ToolProvider {
      */
     @Override
     public ToolProviderResult provideTools(ToolProviderRequest toolProviderRequest) {
-        ToolProviderResult.Builder builder = ToolProviderResult.builder();
-        Method[] methods = this.getClass().getMethods();
-        for (Method method : methods) {
-            if (method.isAnnotationPresent(Tool.class)) {
-                ToolSpecification toolSpec = ToolSpecifications.toolSpecificationFrom(method);
-                ToolExecutor toolExecutor = new DefaultToolExecutor(this, method);
-                builder.add(toolSpec, toolExecutor);
-            }
-        }
-
-        return builder.build();
+        return ToolProviderResultUtils.extractToolsFromInstance(this);
     }
 }

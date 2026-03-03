@@ -1,12 +1,12 @@
 package org.example.langchain4jmodel.agent;
 
-import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.agentic.AgenticServices;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import dev.langchain4j.service.AiServices;
-import dev.langchain4j.service.tool.ToolProvider;
 import jakarta.annotation.Resource;
+import org.example.langchain4jmodel.agent.agentengine.MasterAgent;
+import org.example.langchain4jmodel.agent.chathistory.HistoryAgent;
 import org.example.langchain4jmodel.agent.weather.WeatherAgent;
-import org.example.langchain4jmodel.llmModel.LLMModel;
+import org.example.langchain4jmodel.tools.HistoryTools;
 import org.example.langchain4jmodel.tools.WeatherTools;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,9 +24,28 @@ public class AgentFactory {
 
     @Bean
     public WeatherAgent getWeatherAgent(WeatherTools weatherTools){
-        return AiServices.builder(WeatherAgent.class)
-                .toolProvider(weatherTools)
+        return AgenticServices
+                .agentBuilder(WeatherAgent.class)
                 .chatModel(openAiChatModel)
+                .tools(weatherTools)
+                .build();
+    }
+
+    @Bean
+    public HistoryAgent getHistoryAgent(HistoryTools historyTools){
+        return AgenticServices
+                .agentBuilder(HistoryAgent.class)
+                .chatModel(openAiChatModel)
+                .tools(historyTools)
+                .build();
+    }
+
+    @Bean
+    public MasterAgent masterAgent(WeatherAgent weatherAgent, HistoryAgent historyAgent) {
+        return AgenticServices
+                .supervisorBuilder(MasterAgent.class)
+                .chatModel(openAiChatModel)
+                .subAgents(historyAgent, weatherAgent)
                 .build();
     }
 

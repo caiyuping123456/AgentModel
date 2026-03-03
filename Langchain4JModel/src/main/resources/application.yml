@@ -1,14 +1,26 @@
 spring:
   application:
     name: langchain4j-glm4-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/agentmodel?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: 20031217
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.langchain4jmodel.pojo
+  configuration:
+    map-underscore-to-camel-case: true
 
+#LLM大模型
 model:
   llm:
     base-url: https://integrate.api.nvidia.com/v1
     api-key: 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
     model-name: z-ai/glm4.7
 
+#天气模型
 weather:
   model: cma_grapes_global
   weather-url: https://api.open-meteo.com/v1/forecast

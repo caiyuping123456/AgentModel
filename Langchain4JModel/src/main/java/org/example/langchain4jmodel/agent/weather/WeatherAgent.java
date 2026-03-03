@@ -1,14 +1,17 @@
 package org.example.langchain4jmodel.agent.weather;
 
+import dev.langchain4j.agentic.Agent;
+import dev.langchain4j.model.output.structured.Description;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.V;
 
 /**
  * @author caiyuping
  * @date 2026/3/3 17:14
  * @description: 天气Agent
  */
-
+@Description("查询天气信息、气温、风向或空气质量，并提供出行建议")
 public interface WeatherAgent {
     // 系统提示词：定义Agent的行为准则和能力边界
     @SystemMessage("""
@@ -22,6 +25,7 @@ public interface WeatherAgent {
         """)
 
     // 用户交互方法：接收自然语言请求，Agent自主决策调用工具
-    @UserMessage("{{it}}")
-    String handleWeatherRequest(String userRequest);
+    @UserMessage("{{request}}")
+    @Agent
+    String handleWeatherRequest(@V("request") String userRequest);
 }
