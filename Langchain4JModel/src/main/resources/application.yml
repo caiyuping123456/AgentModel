@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: langchain4j-glm4-demo
+
+
+model:
+  llm:
+    base-url: https://integrate.api.nvidia.com/v1
+    api-key: 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
+    model-name: z-ai/glm4.7
+
+weather:
+  model: cma_grapes_global
+  weather-url: https://api.open-meteo.com/v1/forecast
