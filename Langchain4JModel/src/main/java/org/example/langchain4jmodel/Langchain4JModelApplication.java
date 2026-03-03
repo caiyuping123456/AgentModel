@@ -1,13 +1,13 @@
-package org.example.agentmodel;
+package org.example.langchain4jmodel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AgentModelApplication {
+public class Langchain4JModelApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AgentModelApplication.class, args);
+        SpringApplication.run(Langchain4JModelApplication.class, args);
     }
 
 }
