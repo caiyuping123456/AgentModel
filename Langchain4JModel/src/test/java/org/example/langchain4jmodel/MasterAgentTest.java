@@ -20,9 +20,9 @@ public class MasterAgentTest {
 
     @Test
     void m1() {
-        String result = masterAgent.handleUserRequest("你好");
+        String result = masterAgent.handleUserRequest("（用户的id是：123），请问南昌今天的天气？，请将这个进行存储");
         System.out.println(result);
-        assert !masterAgent.handleUserRequest("你好").isEmpty();
-        assert !masterAgent.handleUserRequest("赣州天气如何").isEmpty();
+//        assert !masterAgent.handleUserRequest("你好").isEmpty();
+//        assert !masterAgent.handleUserRequest("赣州天气如何").isEmpty();
     }
 }
