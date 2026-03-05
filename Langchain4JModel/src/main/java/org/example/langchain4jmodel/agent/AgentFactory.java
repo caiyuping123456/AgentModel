@@ -10,6 +10,7 @@ import org.example.langchain4jmodel.tools.HistoryTools;
 import org.example.langchain4jmodel.tools.WeatherTools;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 /**
  * @author caiyuping
@@ -23,20 +24,24 @@ public class AgentFactory {
     private OpenAiChatModel openAiChatModel;
 
     @Bean
-    public WeatherAgent getWeatherAgent(WeatherTools weatherTools){
+    public WeatherAgent getWeatherAgent(WeatherTools weatherTools,Environment env){
+        String description = env.getProperty("agent.weather.description");
         return AgenticServices
                 .agentBuilder(WeatherAgent.class)
                 .chatModel(openAiChatModel)
                 .tools(weatherTools)
+                .description(description)
                 .build();
     }
 
     @Bean
-    public HistoryAgent getHistoryAgent(HistoryTools historyTools){
+    public HistoryAgent getHistoryAgent(HistoryTools historyTools, Environment env){
+        String description = env.getProperty("agent.history.description");
         return AgenticServices
                 .agentBuilder(HistoryAgent.class)
                 .chatModel(openAiChatModel)
                 .tools(historyTools)
+                .description(description)
                 .build();
     }
 
