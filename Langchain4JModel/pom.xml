@@ -73,6 +73,11 @@
             <version>${mysql.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-core</artifactId>
+            <version>1.10.0</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

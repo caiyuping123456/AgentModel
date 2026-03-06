@@ -5,6 +5,7 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 import jakarta.annotation.Resource;
 import org.example.langchain4jmodel.agent.agentengine.MasterAgent;
 import org.example.langchain4jmodel.agent.chathistory.HistoryAgent;
+import org.example.langchain4jmodel.agent.search.SearchAgent;
 import org.example.langchain4jmodel.agent.weather.WeatherAgent;
 import org.example.langchain4jmodel.tools.HistoryTools;
 import org.example.langchain4jmodel.tools.WeatherTools;
@@ -41,6 +42,16 @@ public class AgentFactory {
                 .agentBuilder(HistoryAgent.class)
                 .chatModel(openAiChatModel)
                 .tools(historyTools)
+                .description(description)
+                .build();
+    }
+
+    @Bean
+    public SearchAgent getSearchAgent(Environment env){
+        String description = env.getProperty("agent.search.description");
+        return AgenticServices
+                .agentBuilder(SearchAgent.class)
+                .chatModel(openAiChatModel)
                 .description(description)
                 .build();
     }
