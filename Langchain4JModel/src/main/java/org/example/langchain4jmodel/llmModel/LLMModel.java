@@ -22,6 +22,10 @@ public class LLMModel {
     @Resource
     private NvidiaModelConfig nvidiaModelConfig;
 
+    /**
+     * 对话模型
+     * @return
+     */
     @Bean
     public OpenAiChatModel openAiChatModel() {
         return OpenAiChatModel.builder()
@@ -31,6 +35,10 @@ public class LLMModel {
                 .build();
     }
 
+    /**
+     * 流式模型
+     * @return
+     */
     @Bean
     public OpenAiStreamingChatModel openAiStreamingChatModel(){
         return OpenAiStreamingChatModel.builder()

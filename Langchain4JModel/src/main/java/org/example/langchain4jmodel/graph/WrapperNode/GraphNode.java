@@ -1,4 +1,4 @@
-package org.example.langchain4jmodel.graph;
+package org.example.langchain4jmodel.graph.WrapperNode;
 
 /**
  * @author caiyuping
@@ -7,12 +7,20 @@ package org.example.langchain4jmodel.graph;
  */
 
 import dev.langchain4j.memory.ChatMemory;
+import org.example.langchain4jmodel.graph.AgentState;
 
 /**
  * 图节点接口
  */
 public interface GraphNode {
+
+    /**
+     * 获取到某一个节点的名称
+     * @return
+     */
     String getName();
+
+    String getDescription();
 
     /**
      * 处理逻辑

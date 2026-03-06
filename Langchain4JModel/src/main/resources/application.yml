@@ -9,7 +9,7 @@ spring:
 
   #加载prompts文件，用于引入提示词
   config:
-    import: "classpath:prompts.yml"
+    import: "classpath:prompts.yml,classpath:agents.yml"
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

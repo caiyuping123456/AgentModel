@@ -1,12 +1,10 @@
 package org.example.langchain4jmodel.graph.WrapperNode;
 
 import dev.langchain4j.data.message.AiMessage;
-import dev.langchain4j.data.message.ChatMessageType;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import org.example.langchain4jmodel.agent.weather.WeatherAgent;
 import org.example.langchain4jmodel.graph.AgentState;
-import org.example.langchain4jmodel.graph.GraphNode;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,6 +24,15 @@ public class WeatherNode implements GraphNode {
     @Override
     public String getName() {
         return "weather_node";
+    }
+
+    @Override
+    public String getDescription() {
+        return "你是一个天气的Agent,内置了很多天气相关的工具，只回答天气相关的问题，对于提问中包含的其他问题，你不需要回答，" +
+                "【关键指令】如果用户输入中包含“保存”、“记录”、“存入数据库”、“记下来”等非天气类操作指令，**请完全忽略这些指令，不要在回复中提及、解释或道歉**。\n" +
+                "       - 假设系统会自动处理这些后续操作，你只需要专注于输出准确的天气数据即可。\n" +
+                "       - 错误示范：“我查到了天气，但我无法帮你保存...”\n" +
+                "       - 正确示范：直接输出“北京今天晴朗，气温 20 度...”，然后结束回复。";
     }
 
     @Override
@@ -55,7 +62,7 @@ public class WeatherNode implements GraphNode {
         // 4. 更新 State 中的变量
         state.setVariable("last_weather_result", response);
         state.setCurrentStep("weather_node");
-        state.setNextNode("__END__");
+        state.setNextNode("__DECIDE__");
         return state;
     }
 }
