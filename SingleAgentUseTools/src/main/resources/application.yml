@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: Single_Agent_Use_Tools
+  datasource:
+    url: jdbc:mysql://localhost:3306/agentmodel?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: 20031217
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #加载prompts文件，用于引入提示词
+#  config:
+#    import: "classpath:prompts.yml,classpath:agents.yml"
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.langchain4jmodel.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+#LLM大模型
+model:
+  llm:
+#    base-url: https://integrate.api.nvidia.com/v1
+#    api-key: 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
+#    model-name: z-ai/glm4.7
+
+    base-url: https://api.siliconflow.cn/v1
+    api-key: sk-eejpytshnxihqbeedqsgfuixodazjxjxjetbounsqbzzygtr
+    model-name: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B

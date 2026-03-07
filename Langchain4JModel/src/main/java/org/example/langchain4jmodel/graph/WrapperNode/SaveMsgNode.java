@@ -6,12 +6,14 @@ import dev.langchain4j.memory.ChatMemory;
 import org.example.langchain4jmodel.agent.chathistory.HistoryAgent;
 import org.example.langchain4jmodel.agent.search.SearchAgent;
 import org.example.langchain4jmodel.graph.AgentState;
+import org.springframework.stereotype.Component;
 
 /**
  * @author caiyuping
  * @date 2026/3/7 12:56
  * @description: 业务
  */
+@Component
 public class SaveMsgNode implements GraphNode{
 
     private final HistoryAgent historyAgent;

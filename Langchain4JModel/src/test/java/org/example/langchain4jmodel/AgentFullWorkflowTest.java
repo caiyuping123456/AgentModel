@@ -61,7 +61,7 @@ class AgentFullWorkflowTest {
 
         System.out.println("[完整项目模式] 开始测试...");
 
-        AgentState finalState = orchestrator.run("test-session-001", "用户的Id为134，今天宜春天气怎么样？请进行保存");
+        AgentState finalState = orchestrator.run("test-session-001", "用户的Id为134，今天赣州天气怎么样？请进行保存");
         //消息打印
         Map<String, Object> variables = finalState.getVariables();
         Set<Map.Entry<String, Object>> entries = variables.entrySet();

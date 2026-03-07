@@ -49,30 +49,30 @@ public class AgentConfig {
         );
     }
 
-    /**
-     * 这个是节点Bean
-     * @param weatherAgent
-     * @return
-     */
-    @Bean
-    public WeatherNode weatherNode(WeatherAgent weatherAgent) {
-        return new WeatherNode(weatherAgent);
-    }
-
-    /**
-     * 这个也是节点Bean
-     * @param searchAgent
-     * @return
-     */
-    @Bean
-    public SearchNode searchNode(SearchAgent searchAgent) {
-        return new SearchNode(searchAgent);
-    }
-
-    @Bean
-    public SaveMsgNode saveMsgNode(HistoryAgent historyAgent){
-        return new SaveMsgNode(historyAgent);
-    }
+//    /**
+//     * 这个是节点Bean
+//     * @param weatherAgent
+//     * @return
+//     */
+//    @Bean
+//    public WeatherNode weatherNode(WeatherAgent weatherAgent) {
+//        return new WeatherNode(weatherAgent);
+//    }
+//
+//    /**
+//     * 这个也是节点Bean
+//     * @param searchAgent
+//     * @return
+//     */
+//    @Bean
+//    public SearchNode searchNode(SearchAgent searchAgent) {
+//        return new SearchNode(searchAgent);
+//    }
+//
+//    @Bean
+//    public SaveMsgNode saveMsgNode(HistoryAgent historyAgent){
+//        return new SaveMsgNode(historyAgent);
+//    }
 
     /**
      * 编排器 Bean

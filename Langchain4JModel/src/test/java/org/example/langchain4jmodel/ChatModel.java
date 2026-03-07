@@ -29,7 +29,8 @@ public class ChatModel {
 
     @Test
     void m1(){
-        String chat = chatModel.chat("你好");
+        String chat = chatModel.chat("这句话：‘用户的Id为134，今天赣州天气怎么样？请进行保存’里面有几个任务");
+        System.out.println(chat);
         assert !chat.isEmpty();
     }
 

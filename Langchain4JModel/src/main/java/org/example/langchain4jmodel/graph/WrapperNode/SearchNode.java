@@ -5,12 +5,14 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import org.example.langchain4jmodel.agent.search.SearchAgent;
 import org.example.langchain4jmodel.graph.AgentState;
+import org.springframework.stereotype.Component;
 
 /**
  * @author caiyuping
  * @date 2026/3/6 16:42
  * @description: 业务
  */
+@Component
 public class SearchNode implements GraphNode {
 
     private final SearchAgent searchAgent;
