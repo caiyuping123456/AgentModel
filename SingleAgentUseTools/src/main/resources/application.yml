@@ -9,6 +9,8 @@ spring:
     username: root
     password: 20031217
     driver-class-name: com.mysql.cj.jdbc.Driver
+  config:
+    import: "classpath:prompt.yml"
 
   #加载prompts文件，用于引入提示词
 #  config:
@@ -23,10 +25,15 @@ mybatis:
 #LLM大模型
 model:
   llm:
-#    base-url: https://integrate.api.nvidia.com/v1
-#    api-key: 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
-#    model-name: z-ai/glm4.7
+    base-url: https://integrate.api.nvidia.com/v1
+    api-key: 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
+    model-name: z-ai/glm4.7
 
-    base-url: https://api.siliconflow.cn/v1
-    api-key: sk-eejpytshnxihqbeedqsgfuixodazjxjxjetbounsqbzzygtr
-    model-name: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+#    base-url: https://api.siliconflow.cn/v1
+#    api-key: sk-eejpytshnxihqbeedqsgfuixodazjxjxjetbounsqbzzygtr
+#    model-name: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+
+#天气模型
+weather:
+  model: cma_grapes_global
+  weather-url: https://api.open-meteo.com/v1/forecast

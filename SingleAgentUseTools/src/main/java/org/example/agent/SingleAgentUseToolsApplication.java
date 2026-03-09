@@ -1,4 +1,4 @@
-package org.example.singleagentusetools;
+package org.example.agent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package org.example.singleagentusetools.controller;
+package org.example.agent.controller;
 
 import jakarta.annotation.Resource;
-import org.example.singleagentusetools.Agent.chatAgentStream;
+import org.example.agent.Agent.chatAgentStream;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

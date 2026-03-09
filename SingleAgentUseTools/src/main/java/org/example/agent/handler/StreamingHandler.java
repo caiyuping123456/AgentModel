@@ -1,4 +1,4 @@
-package org.example.singleagentusetools.handler;
+package org.example.agent.handler;
 
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.chat.response.StreamingChatResponseHandler;

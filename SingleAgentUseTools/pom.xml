@@ -103,7 +103,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>org.example.singleagentusetools.SingleAgentUseToolsApplication</mainClass>
+                    <mainClass>org.example.agent.SingleAgentUseToolsApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>

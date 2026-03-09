@@ -1,9 +1,9 @@
-package org.example.singleagentusetools.LLM;
+package org.example.agent.LLM;
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import jakarta.annotation.Resource;
-import org.example.singleagentusetools.config.NvidiaModelConfig;
+import org.example.agent.config.NvidiaModelConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

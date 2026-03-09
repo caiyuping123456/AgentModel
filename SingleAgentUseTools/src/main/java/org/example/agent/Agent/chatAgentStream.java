@@ -1,5 +1,4 @@
-package org.example.singleagentusetools.Agent;
-import dev.langchain4j.model.chat.ChatModel;
+package org.example.agent.Agent;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
@@ -17,7 +16,7 @@ public interface chatAgentStream {
      * @param userRequest
      * @return 返回 TokenStream 以支持流式输出
      */
-    @SystemMessage("你是一个智能助手")
+    @SystemMessage("#{agent.system_prompt}")
     @UserMessage("{{request}}")
     TokenStream chat(@V("request") String userRequest);
 }

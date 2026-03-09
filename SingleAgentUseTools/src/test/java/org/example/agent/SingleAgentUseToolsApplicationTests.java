@@ -1,11 +1,10 @@
-package org.example.singleagentusetools;
+package org.example.agent;
 
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
-import dev.langchain4j.service.TokenStream;
 import jakarta.annotation.Resource;
-import org.example.singleagentusetools.Agent.chatAgent;
-import org.example.singleagentusetools.Agent.chatAgentStream;
-import org.example.singleagentusetools.handler.StreamingHandler;
+import org.example.agent.Agent.chatAgent;
+import org.example.agent.Agent.chatAgentStream;
+import org.example.agent.handler.StreamingHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

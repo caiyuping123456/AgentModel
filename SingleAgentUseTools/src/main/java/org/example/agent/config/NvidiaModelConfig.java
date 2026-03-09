@@ -1,4 +1,4 @@
-package org.example.singleagentusetools.config;
+package org.example.agent.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

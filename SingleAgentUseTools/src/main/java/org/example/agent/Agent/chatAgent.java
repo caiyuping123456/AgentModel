@@ -1,7 +1,6 @@
-package org.example.singleagentusetools.Agent;
+package org.example.agent.Agent;
 
 import dev.langchain4j.service.SystemMessage;
-import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
 
@@ -16,7 +15,7 @@ public interface chatAgent {
      * @param userRequest
      * @return
      */
-    @SystemMessage("你是一个只能助手，简短回答就可以，尽量可以100字完成回复")
+    @SystemMessage("#{agent.system_prompt}")
     @UserMessage("{{request}}")
     String chat(@V("request") String userRequest);
 }
