@@ -10,7 +10,7 @@ spring:
     password: 20031217
     driver-class-name: com.mysql.cj.jdbc.Driver
   config:
-    import: "classpath:prompt.yml"
+    import: "classpath:prompt.yml,classpath:tool.yml"
 
   #加载prompts文件，用于引入提示词
 #  config:

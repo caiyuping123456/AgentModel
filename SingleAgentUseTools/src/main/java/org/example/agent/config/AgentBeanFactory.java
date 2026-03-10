@@ -25,6 +25,9 @@ public class AgentBeanFactory {
     private OpenAiStreamingChatModel openAiStreamingChatModel;
 
     @Resource
+    private PromptConfig promptConfig;
+
+    @Resource
     private ToolService toolService;
 
     @Bean
@@ -32,6 +35,7 @@ public class AgentBeanFactory {
         return AiServices.builder(chatAgent.class)
                 .chatModel(llm)
                 .tools(toolService.getAllToolProvider())
+                .systemMessageProvider(item->promptConfig.getSYSTEM_PROMPT())
                 .build();
     }
 
@@ -40,6 +44,7 @@ public class AgentBeanFactory {
         return AiServices.builder(chatAgentStream.class)
                 .streamingChatModel(openAiStreamingChatModel)
                 .tools(toolService.getAllToolProvider())
+                .systemMessageProvider(item->promptConfig.getSYSTEM_PROMPT())
                 .build();
     }
 }

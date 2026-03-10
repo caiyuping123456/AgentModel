@@ -11,11 +11,10 @@ import dev.langchain4j.service.V;
  */
 public interface chatAgent {
     /**
-     * 对话
+     * 对话模型
      * @param userRequest
      * @return
      */
-    @SystemMessage("#{agent.system_prompt}")
     @UserMessage("{{request}}")
     String chat(@V("request") String userRequest);
 }
