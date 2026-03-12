@@ -21,12 +21,12 @@ mybatis:
 model:
   llm:
     base-url: https://integrate.api.nvidia.com/v1
-    api-key: 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
+    api-key: 
     model-name: z-ai/glm4.7
 #    base-url: https://api.siliconflow.cn/v1
-#    api-key: sk-qjdabxumpgzwmqdqtofxhlpbiwnjjsbgrumgrdybwpkbilzd
+#    api-key: 
 #    model-name: stepfun-ai/Step-3.5-Flash
-#sk-eejpytshnxihqbeedqsgfuixodazjxjxjetbounsqbzzygtr
+
 
 
 
